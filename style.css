@@ -24,11 +24,34 @@ body {
     padding: 2rem 1.5rem;
     max-width: 90%;
     width: 400px; /* Ancho fijo pero responsive */
-    background: rgba(13, 17, 23, 0.9);
+    background: linear-gradient(135deg, rgba(0, 179, 107, 0.1), rgba(13, 17, 23, 0.9)); /* Gradiente base */
     box-shadow: 0 0 15px rgba(0, 255, 157, 0.05);
     border-radius: 4px; /* Suave para mobile */
+    animation: bg-move 20s infinite alternate ease-in-out; /* Animación lenta del fondo */
+    position: relative; /* Para la línea underline */
 }
 
+@keyframes bg-move {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Línea que crece bajo el header */
+header::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--neon);
+    transition: width 1.5s ease-in-out; /* Animación al load */
+    margin: 0.5rem auto 0;
+}
+
+.terminal-container.loaded header::after {
+    width: 80%; /* Crece al 80% del ancho */
+}
+
+/* Resto igual */
 .glitch {
     font-size: 2rem;
     margin: 0.5rem 0;
@@ -40,7 +63,6 @@ body {
 @keyframes glitch {
     0%, 100% { text-shadow: 0.05em 0 0 var(--neon-dim); }
     50% { text-shadow: -0.05em 0 0 var(--neon-dim); }
-    /* Súper sutil, casi nada */
 }
 
 .bio-tag {
@@ -48,7 +70,7 @@ body {
     color: var(--text);
     margin: 1rem 0 2rem;
     text-align: center;
-    word-break: break-word; /* Evita overflow en bio */
+    word-break: break-word;
 }
 
 .access-links {
@@ -63,12 +85,12 @@ body {
     justify-content: flex-start;
     color: var(--neon);
     text-decoration: none;
-    padding: 1.2rem 1rem; /* Más padding para touch */
+    padding: 1.2rem 1rem;
     border: 1px solid var(--neon-dim);
     transition: all 0.3s;
     font-size: 1.1rem;
-    word-break: break-all; /* Textos no se salen */
-    overflow: hidden; /* Corta si es extremo */
+    word-break: break-all;
+    overflow: hidden;
     border-radius: 4px;
 }
 
