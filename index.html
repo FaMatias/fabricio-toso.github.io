@@ -3,38 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F.M. TOSO | SYSTEM_ACCESS</title>
+    <title>F.M. TOSO | LAB_ACCESS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="scanline"></div>
     <div class="terminal-container">
         <header>
-            <p class="system-status">● ENAT_PROTOCOL: ACTIVE</p>
+            <p class="system-status">● SYSTEM_STATUS: ONLINE</p>
             <h1 class="glitch" data-text="FABRICIO_TOSO">FABRICIO_TOSO</h1>
-            <p class="bio-tag">BIOTECH_ARCHITECT // FULLSTACK_DEV</p>
+            <p class="bio-tag" id="typing-text"></p>
         </header>
 
         <section class="dna-visual">
-            <div class="helix"></div>
+            <div class="dna-strand">
+                <div class="base"></div><div class="base"></div><div class="base"></div>
+                <div class="base"></div><div class="base"></div><div class="base"></div>
+            </div>
         </section>
 
         <nav class="access-links">
-            <a href="https://github.com/tu-usuario" class="nav-btn">
-                <span class="code-bracket">[</span> GITHUB_CORE <span class="code-bracket">]</span>
+            <a href="https://github.com/FaMatias" target="_blank" class="nav-btn">
+                <span class="prefix">root@git:~$</span> GITHUB_REPOS
             </a>
-            <a href="https://linkedin.com/in/tu-usuario" class="nav-btn">
-                <span class="code-bracket">[</span> LINKEDIN_AUTH <span class="code-bracket">]</span>
+            <a href="https://www.linkedin.com/in/fabricio-matias-toso" target="_blank" class="nav-btn">
+                <span class="prefix">user@linked:~$</span> LINKEDIN_PROFILE
             </a>
-            <a href="mailto:tu-email@gmail.com" class="nav-btn">
-                <span class="code-bracket">[</span> SEND_ENCRYPTED_SIGNAL <span class="code-bracket">]</span>
+            <a href="mailto:Fabricio.toso@gmail.com" class="nav-btn">
+                <span class="prefix">mail@send:~$</span> CONTACT_ME
             </a>
         </nav>
 
         <footer>
-            <p class="loc-tag">LOCATION: ZARAGOZA_ESP // 41.6488° N</p>
-            <p class="status-msg">ESPERANDO RESPUESTA DEL SERVIDOR...</p>
+            <p class="loc-tag">LOCATION: ZARAGOZA_ESP // ID: ENAT201_PENDING</p>
+            <p class="console-log">> _Ready to collaborate.</p>
         </footer>
     </div>
+
+    <script>
+        // Efecto de escritura tipo máquina
+        const text = "BIOTECH_BACKGROUND // CODING_PASSION";
+        const element = document.getElementById('typing-text');
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100); // Velocidad de escritura
+            }
+        }
+        window.onload = typeWriter;
+    </script>
 </body>
 </html>
