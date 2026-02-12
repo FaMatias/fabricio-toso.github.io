@@ -36,19 +36,22 @@ body {
     100% { background-position: 100% 50%; }
 }
 
-/* Línea que crece bajo el header */
+/* Línea con animación constante (grow-shrink loop) */
 header::after {
     content: '';
     display: block;
-    width: 0;
     height: 2px;
     background: var(--neon);
-    transition: width 1.5s ease-in-out; /* Animación al load */
     margin: 0.5rem auto 0;
+    opacity: 0.7; /* Sutil para pro */
+    animation: line-pulse 3s infinite ease-in-out; /* Loop constante */
+    animation-delay: 1s; /* Delay inicial para no empezar de golpe */
 }
 
-.terminal-container.loaded header::after {
-    width: 80%; /* Crece al 80% del ancho */
+@keyframes line-pulse {
+    0% { width: 0; }
+    50% { width: 80%; }
+    100% { width: 0; }
 }
 
 /* Resto igual */
