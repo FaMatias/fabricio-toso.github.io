@@ -1,10 +1,9 @@
 :root {
     --bg-dark: #0f172a;       
-    --card-bg: rgba(30, 41, 59, 0.65); 
+    --card-bg: rgba(30, 41, 59, 0.75); 
     --accent: #38bdf8;        
-    --accent-green: #34d399;  /* Verde para Biotech */
     --text-main: #f8fafc;     
-    --text-muted: #94a3b8;    
+    --text-muted: #cbd5e1;    
     --gradient: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
 }
 
@@ -19,15 +18,14 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 15px; /* Padding pequeño para móviles */
     overflow-x: hidden;
-    perspective: 1000px; /* IMPORTANTE: Esto permite el efecto 3D */
+    perspective: 1000px;
 }
 
 .background-glow {
-    position: fixed;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+    position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.12) 0%, transparent 60%);
     z-index: -1;
     animation: pulse 12s infinite ease-in-out;
 }
@@ -36,121 +34,100 @@ body {
     50% { transform: scale(1.1); opacity: 0.9; }
 }
 
-/* Tarjeta con propiedades 3D */
+/* Tarjeta Principal */
 .card {
     background: var(--card-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    padding: 2.5rem; /* Más espacio interno */
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
     width: 100%;
-    max-width: 480px; /* Un poco más ancha para que entre el texto */
+    max-width: 440px;
     text-align: center;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    
-    /* Suavidad en el movimiento 3D */
-    transition: transform 0.1s ease; 
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
     transform-style: preserve-3d;
+    transition: transform 0.1s ease;
 }
 
-/* Para que el contenido flote un poco sobre la tarjeta */
-.card-content {
-    transform: translateZ(20px); 
-}
+.card-content { transform: translateZ(30px); }
 
-/* Foto */
+/* Header & Foto */
+.profile-header { margin-bottom: 1.5rem; }
+
 .photo-container {
-    width: 130px; height: 130px;
-    margin: 0 auto 1.5rem;
-    border-radius: 50%;
-    padding: 3px;
+    width: 110px; height: 110px;
+    margin: 0 auto 1rem;
+    border-radius: 50%; padding: 3px;
     background: var(--gradient);
-    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.25);
 }
 .profile-pic {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid var(--bg-dark);
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: 50%; border: 3px solid var(--bg-dark);
     background-color: var(--bg-dark);
 }
 
-/* Textos */
 h1 {
-    font-size: 1.75rem;
-    margin: 0 0 0.5rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    background: linear-gradient(to right, #fff, #cbd5e1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 1.6rem; margin: 0 0 0.2rem; font-weight: 700;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .subtitle {
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.85rem;
+    color: var(--accent); font-weight: 500; margin-bottom: 1.2rem;
+    font-size: 0.85rem; letter-spacing: 0.5px; text-transform: uppercase;
 }
 
-/* Badges - Colores según rol */
+/* Badges */
 .badges {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 .badge {
-    font-size: 0.7rem; padding: 5px 10px; border-radius: 6px; font-weight: 600;
-    border: 1px solid transparent;
+    font-size: 0.75rem; padding: 4px 10px; border-radius: 8px; font-weight: 600;
 }
-.badge.tech { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border-color: rgba(56, 189, 248, 0.2); }
-.badge.water { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border-color: rgba(59, 130, 246, 0.2); }
-.badge.study { background: rgba(52, 211, 153, 0.1); color: #34d399; border-color: rgba(52, 211, 153, 0.2); }
-.badge.location { background: rgba(255, 255, 255, 0.05); color: #94a3b8; }
+.badge.tech { background: rgba(56, 189, 248, 0.1); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.2); }
+.badge.water { background: rgba(59, 130, 246, 0.1); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.2); }
+.badge.study { background: rgba(52, 211, 153, 0.1); color: #6ee7b7; border: 1px solid rgba(52, 211, 153, 0.2); }
 
 /* Bio Text */
 .bio-text {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
-    text-align: left; /* Lectura más fácil */
-    background: rgba(0,0,0,0.2);
-    padding: 15px;
-    border-radius: 12px;
+    color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;
+    margin-bottom: 2rem; text-align: left;
+    background: rgba(0,0,0,0.2); padding: 1.2rem; border-radius: 12px;
 }
-.bio-text strong { color: var(--text-main); font-weight: 600; }
-.bio-text em { color: var(--accent-green); font-style: normal; }
+.bio-text strong { color: #fff; font-weight: 600; }
+.divider { height: 1px; background: rgba(255,255,255,0.1); margin: 12px 0; }
+.small-text { font-size: 0.8rem; opacity: 0.9; }
+.small-text em { color: var(--accent); font-style: normal; font-weight: 600; }
 
 /* Botones */
-.links { display: flex; flex-direction: column; gap: 12px; }
+.links { display: flex; flex-direction: column; gap: 10px; }
 .btn {
     display: flex; align-items: center; justify-content: center; gap: 10px;
-    text-decoration: none; padding: 14px 20px; border-radius: 12px;
-    font-weight: 600; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 0.95rem;
+    text-decoration: none; padding: 12px 16px; border-radius: 10px;
+    font-weight: 600; font-size: 0.95rem;
+    transition: all 0.2s ease;
 }
 .btn.primary {
     background: var(--gradient); color: white;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
-.btn.primary:hover {
-    transform: translateY(-2px); box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
-}
+.btn.primary:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
 .btn.secondary {
-    background: rgba(255, 255, 255, 0.05); color: var(--text-main);
+    background: rgba(255, 255, 255, 0.05); color: #e2e8f0;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.btn.secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--text-main); }
-.btn.outline {
-    background: transparent; color: var(--text-muted);
-    font-size: 0.85rem; padding: 10px;
-}
-.btn.outline:hover { color: var(--accent); }
+.btn.secondary:hover { background: rgba(255, 255, 255, 0.1); }
 
-/* Mobile Adjustment */
-@media (max-width: 768px) {
-    .card { transform: none !important; } /* Desactiva 3D en móvil para ahorrar batería */
+.btn.outline {
+    background: transparent; color: #94a3b8; font-size: 0.85rem; padding: 8px;
+}
+.btn.outline:hover { color: #fff; }
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .card { padding: 2rem 1.5rem; }
+    h1 { font-size: 1.4rem; }
+    .bio-text { font-size: 0.9rem; }
 }
