@@ -3,34 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Fabricio Toso | Dev & Biotech</title>
+    <meta name="description" content="Portfolio Técnico: Especialista en Redes de Agua (10 años exp) y Desarrollador Web Fullstack.">
+    <meta property="og:title" content="Fabricio Toso | System Access">
+    <meta property="og:description" content="Acceso al perfil técnico: Biotech Roots // Water Networks Core // Web Tech.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="terminal-container">
+    <div class="scanline"></div> <div class="terminal-container">
         <header>
+            <p class="sys-status">● SYSTEM: ONLINE</p>
             <h1 class="glitch" data-text="FABRICIO TOSO">FABRICIO TOSO</h1>
-            <p class="bio-tag">Web Dev // Biotech Roots // Water Tech</p>
+            <p class="bio-tag" id="typing"></p>
         </header>
 
         <nav class="access-links">
-            <a href="https://github.com/FaMatias" target="_blank" class="nav-btn" aria-label="Mi GitHub">
-                <span class="prefix">git ></span> Repos
+            <a href="https://github.com/FaMatias" target="_blank" class="nav-btn">
+                <span class="prefix">root@git:~$</span> GITHUB_REPOS
             </a>
-            <a href="https://www.linkedin.com/in/fabricio-matias-toso" target="_blank" class="nav-btn" aria-label="Mi LinkedIn">
-                <span class="prefix">in ></span> Perfil
+            <a href="https://www.linkedin.com/in/fabricio-matias-toso" target="_blank" class="nav-btn">
+                <span class="prefix">user@linked:~$</span> LINKEDIN_PROFILE
             </a>
-            <a href="mailto:Fabricio.toso@gmail.com" class="nav-btn" aria-label="Contáctame por email">
-                <span class="prefix">mail ></span> Contacto
+            <a href="mailto:Fabricio.toso@gmail.com" class="nav-btn">
+                <span class="prefix">mail@send:~$</span> CONTACT_ME
             </a>
         </nav>
 
         <footer>
-            <p class="loc-tag">Zaragoza, España</p>
+            <p class="loc-tag">📍 ZARAGOZA, ES // 🇦🇷 CORDOBÉS</p>
+            <p class="status">ID: PEAC_IN_PROGRESS</p>
         </footer>
     </div>
+
     <script>
-        document.querySelector('.terminal-container').classList.add('loaded');
+        // Efecto de escritura automática (Typewriter)
+        const text = "BIOTECH_ROOTS // WATER_NETWORKS_CORE // WEB_TECH_STACK";
+        const element = document.getElementById('typing');
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                element.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50); // Velocidad de escritura
+            } else {
+                element.style.borderRight = "none"; // Quita el cursor al terminar
+            }
+        }
+        
+        // Iniciar cuando carga la página
+        window.onload = typeWriter;
     </script>
 </body>
 </html>
